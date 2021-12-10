@@ -115,7 +115,7 @@ class Root extends Component {
                                     onClick={this.handleSubmit}
                                     value="Convert"
                                 />
-                                //TODO:Swap
+                                {/* //TODO:Swap */}
                             </div>
                             <div className="form-group">
                                 <label htmlFor='roman'>Coverted roman numeral</label>
