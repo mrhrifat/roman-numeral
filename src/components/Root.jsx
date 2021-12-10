@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Conversion from './Conversion'
+import '../style/style.css'
 
 const convertNatural = new Conversion();
 
@@ -19,11 +20,22 @@ class Root extends Component {
         })
     }
 
+    handleKeyPress = e => {
+        if (e.key === 'Enter') {
+            // console.log('I am pressed')
+            this.setState({
+                roman: convertNatural.convertRoman(this.state.natural),
+                natural: ''
+            })
+        }
+    }
+
     handleSubmit = e => {
         e.preventDefault()
 
         this.setState({
-            roman: convertNatural.convertRoman((this.state.natural))
+            roman: convertNatural.convertRoman((this.state.natural)),
+            natural: ''
         })
         // console.log(this.convert(this.state.natural))
         // console.log(this.state.roman)
@@ -80,39 +92,44 @@ class Root extends Component {
         const { natural, roman } = this.state
         return (
             <div className='container'>
-                <div className="main-body w-50">
-                    <form>
-                        <div className='form-group'>
-                            <label htmlFor='natural'>Enter natural number</label>
-                            <input
-                                type="text"
-                                name="natural"
-                                id="natural"
-                                className='form-control'
-                                value={natural}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                        <div className='form-group my-2'>
-                            <input
-                                type="button"
-                                className='btn btn-sm btn-success'
-                                onClick={this.handleSubmit}
-                                value="Convert"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor='roman'>Coverted roman numeral</label>
-                            <input
-                                disabled
-                                type="text"
-                                name="roman"
-                                id="roman"
-                                className='form-control'
-                                value={roman}
-                            />
-                        </div>
-                    </form>
+                <div className="root-container  d-flex justify-content-center">
+                    <div className="main-body w-md-50 bg-light p-5 rounded">
+                        <form>
+                            <div className='form-group'>
+                                <label htmlFor='natural'>Enter natural number</label>
+                                <input
+                                    type="text"
+                                    name="natural"
+                                    id="natural"
+                                    className='form-control'
+                                    value={natural}
+                                    onChange={this.handleChange}
+                                    onKeyPress={this.handleKeyPress}
+                                    placeholder='Ex: 123'
+                                />
+                            </div>
+                            <div className='form-group my-3'>
+                                <input
+                                    type="button"
+                                    className='btn btn-sm btn-success'
+                                    onClick={this.handleSubmit}
+                                    value="Convert"
+                                />
+                                //TODO:Swap
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor='roman'>Coverted roman numeral</label>
+                                <input
+                                    disabled
+                                    type="text"
+                                    name="roman"
+                                    id="roman"
+                                    className='form-control'
+                                    value={roman}
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         )
