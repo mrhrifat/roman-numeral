@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Conversion from './Conversion'
 
-const con = new Conversion();
+const convertNatural = new Conversion();
 
 class Root extends Component {
     state = {
@@ -10,7 +10,7 @@ class Root extends Component {
     }
 
     componentDidMount() {
-        con.convert(this.state.natural)
+        convertNatural.convertRoman(this.state.natural)
     }
 
     handleChange = e => {
@@ -23,7 +23,7 @@ class Root extends Component {
         e.preventDefault()
 
         this.setState({
-            roman: con.convert((this.state.natural))
+            roman: convertNatural.convertRoman((this.state.natural))
         })
         // console.log(this.convert(this.state.natural))
         // console.log(this.state.roman)
@@ -75,7 +75,7 @@ class Root extends Component {
     // }
 
     render() {
-        console.log(this.state.natural)
+        // console.log(this.state.natural)
         // console.log(this.convert(this.state.natural))
         const { natural, roman } = this.state
         return (
