@@ -32,7 +32,7 @@ const roman = {
 
 }
 export default class Conversion {
-    convert(natural) {
+    convertRoman(natural) {
         let str = String(natural).split('')
         let result = ''
         for (let i = 0; i < str.length; i++) {
