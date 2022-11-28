@@ -21,4 +21,4 @@ Roman numerals are represented by seven different symbols: I, V, X, L, C, D and 
 - Click on button/enter to get Roman Numeral.
 
 ## License
-This project is licensed under [GPL-3.0](https://github.com/mrhrifat/roman-numeral-converter/blob/master/LICENSE.md).
+This project is licensed under [GPL-3.0](https://github.com/mrhrifat/roman-numeral/blob/master/LICENSE.md).
